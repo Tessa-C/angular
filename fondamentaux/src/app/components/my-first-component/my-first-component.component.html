@@ -1,0 +1,12 @@
+<p class="red">{{criDeVictoire}}</p>
+{{getBanane()}}
+
+<ul>
+    <!-- comme une boucle for. Attention toujours un let ici et pas un const sinon ça plante-->
+    <li *ngFor="let movie of movies">
+        {{movie.title}}
+        <p>
+            {{movie.description}}
+        </p>
+    </li>
+</ul>
