@@ -1,0 +1,33 @@
+<app-postcard postTitle="New title" (clickTitle)="handleClickTitle($event)">
+    <!--le ng-container n'est pas considéré comme une div et donc on ne se retrouve pas avec une div dans un p. Le ng-container disparait une fois q'il est traité, permet de ne pas générer des balises inutiles pour créer du contenu. Il enveloppe le contenu qu'on va envoyer -->    
+    <ng-container class="content">
+        <span>contenu magique</span>
+    </ng-container>
+</app-postcard>
+
+<!--on crée une variable html pour l'appeler plus tard-->
+<ng-template #coffee>
+    <!--Pour que l'image ascii s'affiche bien-->
+    <pre>
+    (  )   (   )  )
+    ) (   )  (  (
+    ( )  (    ) )
+    _____________
+   <_____________> ___
+   |             |/ _ \
+   |               | | |
+   |               |_| |
+___|             |\___/
+/    \___________/    \
+\_____________________/
+</pre>
+</ng-template>
+
+<ng-template #board>
+    J'ai pas trouvé d'ascii pour représenter un tableau,  déso
+</ng-template>
+
+<!--Si la condition est respectée, on affiche le template coffee, si pas ce sera board-->
+<div *ngIf="1 === 1 then coffee else board">
+    ce texte ne sera jamais affichééééééééééééééééééééééééééééééééééé
+</div>
