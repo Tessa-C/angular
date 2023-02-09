@@ -1,0 +1,28 @@
+<!-- entre [], on déclare que ce qui se trouve entre "" sera une variable, pas du texte. -->
+<!-- les () permettent de lier un event et on met la fonction entre les ""-->
+<input type="text" [disabled]="isNotAllowedToWrite" (keyup.enter)="changeUsername(usernameInput)" #usernameInput/>
+<p>
+    Le binding à deux sens.
+    C'est l'HTML qui va mettre la propriété à jour. Au-dessus, c'est le TS qui met la variable à jour et change la valeur dans l'HTML.
+</p>
+<!--écriture plus compacte ! et on n'a pas eu besoin de créer de fonction dans notre classe !
+Mais on n'a pas de contrôle sur les changements (comme on aurait avec une fonction)-->
+<input type="text" [disabled]="isNotAllowedToWrite" [(ngModel)]="username" />
+
+<!-- une classe sera rajoutée si la boolean est true-->
+<!--on peut mettre du style en inline, et même une ternaire car c'est du JS-->
+<p [class.premium]="isPremium" class="bidon" [style.backgroundColor]="isPremium ? 'lightGreen' : 'none'">
+    {{username}}
+</p>
+
+<!--chaque clé de l'objet sera une classe qu'on souhaite activée ou non-->
+<!--le ng permet de faire la même qu'au-dessus mais sur pls lignes -->
+<p [ngClass]="{
+    premium : isPremium,
+    bidon: isPremium
+}" [ngStyle]="{
+    border: isPremium ? '1px solid green' : 'none',
+    fontSize: isPremium ? '32px' : '1em'
+}">
+    Conditions d'utilisation: respectez les loutres svp. Le reste c'est pas grave.
+</p>
