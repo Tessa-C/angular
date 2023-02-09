@@ -15,5 +15,6 @@ export class BindingDemoComponent {
     this.username = input.value;
     input.value = "";
     
+    
   }
 }
