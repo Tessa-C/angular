@@ -1,5 +1,27 @@
+<!--entre [] pour avoir accès au JS, et s'assurer que ce soit une boolean-->
+<!-- on vient lier une fonction. -->
+<app-zippy title="Ma collection de loutres" manager="Romain" [isContentVisible]="true" [clickCount]="clickCountPerAnimal.otter" (titleClicked)="updateClickCount('otter')">
+    <ng-container>
+        <p>La loutre de chantier</p>
+        <p>La loutre clean code</p>
+        <button>
+            Abonnez-vous aux loutres
+        </button>
+    </ng-container>
+</app-zippy>
+<app-zippy title="Ma collection de bébés chauve-souris" manager="Christophe" [clickCount]="clickCountPerAnimal.bat" (titleClicked)="updateClickCount('bat')">
+    <ng-container>
+        <p>La chauve-souris de chantier</p>
+        <p>La chauve-souris clean code</p>
+        <button>
+            Abonnez-vous aux loutres
+        </button>
+    </ng-container>
+</app-zippy>
+
+
 <app-postcard postTitle="New title" (clickTitle)="handleClickTitle($event)">
-    <!--le ng-container n'est pas considéré comme une div et donc on ne se retrouve pas avec une div dans un p. Le ng-container disparait une fois q'il est traité, permet de ne pas générer des balises inutiles pour créer du contenu. Il enveloppe le contenu qu'on va envoyer -->    
+    <!--le ng-container n'est pas considéré comme une div et donc on ne se retrouve pas avec une div dans un p. Le ng-container disparait une fois qu'il est traité, permet de ne pas générer des balises inutiles pour créer du contenu. Il enveloppe le contenu qu'on va envoyer -->    
     <ng-container class="content">
         <span>contenu magique</span>
     </ng-container>
@@ -31,3 +53,4 @@ ___|             |\___/
 <div *ngIf="1 === 1 then coffee else board">
     ce texte ne sera jamais affichééééééééééééééééééééééééééééééééééé
 </div>
+

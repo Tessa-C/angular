@@ -1,0 +1,16 @@
+<div>
+    <!-- on va rendre le titre dynamique. On va dire au composant qu'il pourra recevoir des infos d'ailleurs-->
+    <!--cela doit réagir au clic sur le titre, y mettre la fonction, avec les ()-->
+    <h3 (click)="toggleContentVisibility()">
+        <!-- a été défini dans le TS-->
+        {{ title }} - {{ manager }}
+    </h3>
+    <p>
+        cliqué {{clickCount}} fois
+    </p>
+    <!--les [] permettent de relier l'attribut au JS-->
+    <div [hidden]="!isContentVisible">
+        <!--L'info est mise dans un ng-container dans app.component.html -->
+        <ng-content></ng-content>
+    </div>
+</div>
