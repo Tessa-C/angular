@@ -1,0 +1,52 @@
+<!-- Lorsque la condition liée à notre ngIf renvoit faux, l'HTML n'apparaît pas sur la page.-->
+
+<div *ngIf="false">
+  Ce texte est caché à cause d'une condition.
+</div>
+
+<div *ngIf="true">
+  Ce texte n'est pas caché car ma condition est vraie.
+</div>
+
+<ul>
+  <!--Pour chaque élément dans mon tableau colors, on vient créer un élément <li> dans lequel on affiche l'élément du tableau -->
+    <!--Pour qu'il affiche le texte aux couleurs correspondantes -->
+  <li *ngFor="let color of colors; index as i; even as isEven" [ngStyle]="{
+    color: colors[i]
+  }">
+    {{ color }}
+    <p *ngIf="isEven">
+      Cette couleur se trouve à un index pair.
+    </p>
+  </li>
+</ul>
+
+<!--Le case de notre switch, se choisira par rapport, à la valeur de la propriété viewmode-->
+<div [ngSwitch]="viewmode">
+  <!--Pour le cas où viewmode est égal à 'list', on affichera le paragraphe -->
+  <p *ngSwitchCase="'list'">
+    Vue liste
+  </p>
+  <p *ngSwitchCase="'kanban'">
+    Vue kanban
+  </p>
+  <p *ngSwitchDefault>
+    Vue CHEH
+  </p>
+</div>
+
+<button (click)="viewmode = 'list'">LIST</button>
+<button (click)="viewmode = 'kanban'">KANBAN</button>
+<hr>
+<div>
+<!-- on donne après le pipe, le nom d'un pipe. Il y en a plusieurs intégré à Angular.-->
+<!-- il va de la gauche vers la droite en passant par les tuyaux. -->
+{{ "mArIO" | lowercase | uppercase}}
+<!-- Un pipe, comme une fonction, peut avoir des arguments -->
+{{ "42" | currency: 'EUR' }}
+
+</div>
+
+<p>
+  {{ "la loutre de jemappes" | spongebob: 'Imaginons' : 'Que' : 42}}
+</p>
