@@ -1,0 +1,32 @@
+<h1>Liste de Pokémons</h1>
+
+<div class="container">
+  <div class="row">
+    <!-- <input #input type="text" (keyup.enter)="selectPokemonById(input.value)">
+    <div *ngIf="messageVisible">
+      <p *ngIf="pokemonSelected">Vous avez sélectionné le pokémon: {{pokemonSelected.name}}</p>
+      <p *ngIf="!pokemonSelected">Aucun pokemon n'a été trouvé.</p>
+    </div> -->
+    <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
+      <!--on met un ? car la propriété est potentiellement inexistante-->
+      <!-- <p (click)="selectPokemon($event)">{{pokemon.name}}</p> -->
+      <!-- # devant pour préciser que c'est une variable locale-->
+      <div class="card horizontal" pkmBorderCard>
+        <div class="card-image">
+          <!-- <img [src]="pokemon.picture" alt=""> -->
+          <img src="{{pokemon.picture}}" alt="">
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+              <p>{{pokemon.name}}</p>
+              <p><small>{{pokemon.created}}</small></p>
+              <p><small>{{pokemon.created | date:'dd/MM/yyyy' | uppercase}}</small></p>
+              <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">{{type}}</span>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
